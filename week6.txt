@@ -1,0 +1,59 @@
+Fuction and Program stucture
+
+#include <stdio.h>
+int main(){
+    int x = 100;
+    int b = 0144;  // 0144 เลขฐาน8{%o}=100
+    int c = 0x64;  //เลขฐาน16 (0x) 0x64{%x}=100
+                   //เลขฐานสองต้องเปลี่ยนเอา กำหนดแบบฐานแปดกับสิบหกไม่ได้
+    printf("x = %d\n",x);
+    printf("reference of x %lu\n", &x);   //& ใช้ดึงaddressตัวแปรออกมา
+    printf("reference of x %p\n", &x);    //%pจะเเสดงเลขฐาน16
+
+    char input[100];
+    //gets(input);                        //เวลาส่งด้วย address จะใช้ pointer เก็บค่า
+    int number[] = {1,2,3,4,5};           //การประกาศค่าอาเรย์aray
+    printf("reference of input %p\n", input);//พิมได้เหมือนกันกับบรรทัดล่าง
+    printf("reference of &input[0] %p\n", &input[0]);//เหมือนข้างบน
+
+
+    int number[] = {1,2,3,4,5};           //ถ้าอยากได้เลข3ที่อยู่ข้างในพิมแบบบรรทัดถัดไปพิมได้2แบบ
+    printf("index 2 = %p\n",number[2]);
+    printf("index 2 = %d\n",*(number+2)); //* คือ d(diferensing)ใช้ดึงค่าindex
+
+    int *ptr = &x;                        //การประกาศตัวแปรaddress &x เก็บค่าได้ล้านกว่าค่า xถูกเก็บaddressไหน
+    int *arrPtr = number;
+    *arrPtr = number;                     //เก็บค่าaddressของ number
+    *ptr = &x                             //มันเก็บเลขอะไรไว้
+    *ptr = 2000;                          //การอ้างอิงค่า
+    *ptr = *ptr + 300;                    //มี*จะค่า2300 เอาค่าที่เก็บไว้บวก
+    ptr =ptr +300                         //ไม่มี*คือ 13+300*4 เป็นintเลยคูณ4
+
+
+    int number[] = {1,2,3,4,5}
+    char input[100];
+    for (int*ptr=number; ptr <= &number[3];, ptr++)
+    [
+        printf("[%d] = %d\n",ptr,*ptr);
+    ]
+    
+    char input[100];
+    int count =0;
+    char c;
+    while ((c = getchar()) != '\n')
+    {
+        input[count] = c;
+        ++count;
+    }
+    printf("input[] = %s\n",input);      //*cPtr !='\0' หมายถึง ค่าที่เก็บไว้ต้องไม่ใช่ค่าในช่อง0
+    for (char *cPtr = input; *cPtr != '\0' ; cPtr++)
+    /*{
+        printf("%c\n,*cPtr");
+    }*/
+
+    }                 
+    {int a;
+    char c;
+    char s[300];
+    scanf("%d %c-%s",&a,&c,s);         //การรับformath ใช้scanf ถ้าเป็นarray sไม่มี&                      
+    printf("%d-%c-%s",a,c,s);}         //$เวลารันจะใส่$ 12345 n-minttt บรรทัดต่อมาจะได้ 12345-n-minttt
