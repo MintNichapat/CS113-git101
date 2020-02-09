@@ -1,0 +1,27 @@
+Linked List --> ใช้เก็บข้อมูล ข็อมูลเเต่ละตัวเชื่อมโยงกันเป็นสาย สามารถเข้าถึงข้อมูลแต่ละตัวได้
+structure   --> การกำหนดรูปแบบโครงสร้างข้อมูลที่มีการรวมตัวแปรที่เก็บข้อมูลหลายเรื่องสัมพันธ์กันที่อาจมีประเภทข้อมูลที่ต่างกันเข้าไว้ด้วยกัน
+   ex. struct student{
+       char id[12];
+       char name[40]; 
+       int age;
+   }
+2. การประกาศตัวแปร stucture
+   ex.struct student std;  //std เป็นตัวแปรทีมีโครงสร้างตาม struct student 
+   printf("%s\n", std.name); -->std.age = 21;
+   การเข้าถึงสมาชิกแต่ละฟิลด์ผ่านตัวแปร pointer
+   ex.struct student std, *p_std; 
+ 
+      p_std = &std;
+      printf("%s\n", (*p_std).name); -->(*p_std).age = 21; //หรือพิมแบบนี้ก็ได้ p_std->age=21;
+3. linked list ทีมีข้อมูล
+   head-->[17]-->[29]-->[93\]
+4. การเข้าถึงข้อมูลแต่ละตัวใน linked list (Traversal) เราจะปรับโค้ดก่อนหน้าโดยให้มีฟังก์ชันทีใช้สร้าง linked list ทีมี 3 โหนด (ตามทีเคยทําไว้) แล้วเราจะสร้างอีกฟังก์ชันขึนมาเพือเข้าถึงข้อมูลโดยการแสดงข้อมูลแต่ละตัวออกมาบนหน้าจอ
+5. การลบข้อมูลออกจาก linked list (Deletion)
+   ex.void delete_node(struct node **head_ref, int key) {  struct node* tmp = *head_ref, *prev; 
+6. การเพิมข้อมูลเข้าไปใน linked list (Insertion) การเพิมโหนดเข้าไปใน list สามารถทําได้ในหลายลักษณะ โดยพิจารณาจากตําแหน่งใน list ทีต้องการ เพิมโหนดเข้าไป 
+   ex.void insert_node_at_front(struct node **head_ref, int new_data)  {     
+       struct node *new_node = (struct node *)malloc(sizeof(struct node)); 
+7. Doubly Linked List ลักษณะของ linked list ทีเห็นผ่านมาเรียกว่า Singly Linked List โดยพิจารณาได้จากการทีแต่ละ โหนดทีอยู่ติดกันเชือมต่อถึงกันผ่านลิงก์เพียงลิงก์เดียว นอกจาก Singly Linked List
+ เรายังสามารถสร้างโครงสร้างข้อมูลทีเรียกว่า Doubly Linked List โดยทีแต่ละโหนดทีอยู่ติดกันเชือมต่อกันด้วยลิงก์ 2 ลิงก์ 
+8. Circular Linked List  //Nodeแต่ละNode เชื่อมกันด้วยpointer Nodeสุดท้ายจะวนกลับไป Nodeตอนต้นและ
+Nodeต้นจะชี้ไปNodeสุดท้าย 
