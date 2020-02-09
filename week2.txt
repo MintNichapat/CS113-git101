@@ -1,0 +1,48 @@
+1.พื้นฐานเบื้องต้น
+////กำหนด#include<stdio.h>เพื่อเรียกใช้printf putsเป็นฟังก์ชันในstandardcLibraryและต้องประกาศตัวแปรก่อนถึงใช้งานได้
+#include<stdio.h> 
+int main()
+{
+    int x;
+    x=10
+    //คำสั่งปิดด้วย;
+    //ส่วนนี้เรียกว่า block
+}
+
+//ex.printf() จะไม่ขึ้นบรรทัดใหม่ puts() จะขึ้นบรรทัดใหม่ให้
+#include<stdio.h>
+int main(){                       //ผลลัพธ์ที่ได้
+    printf("hello,world");        -->//hello,worldhello,
+    puts("hello,");               -->//world
+    puts("world");                -->//hello,world again
+    printf("hello,world again")
+}
+2. comment ในภาษาซีใช้ /*จบด้วย*/ หรือใช้ //
+
+3. ใช้ #define(ชื่อตัวแปรตามด้วยตัวเลข) //เป็นการกำหนดตัวแปรเองนอกฟังก์ชัน
+#include<stdio.h> 
+#define START_NUM5                //----#define name value----
+#define STOP_NUM15
+for(x=START_NUM5;x<=STOP_NUM15;x++)
+
+float e; 
+int main(){ 
+    int  a   = 400;               // long เทียบเท่า int แต่มากกว่า
+    char b   = 'a';
+    char c   = 97;
+    float f  = 0.1245;
+    double d = 20.18888;
+    char r[0];
+    char s = '\0';                // กำหนดค่าcharacterว่าง
+    // printf("hello_world");
+    // printf("%u", a);
+    // printf("%c %d %c %d", b,b,c,c);
+    // printf("%f %lf", f, d);
+    //printf("%f",e + 1000);
+    
+    int ans1 = a*b;
+    float ans2 = f/b;
+    printf("%d", 2%1);
+    //printf("%-10s", for);
+    return 0;                    // ปกติรีเทิร์น0 ใส่ไม่ใส่ก็ได้
+}
