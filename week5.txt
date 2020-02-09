@@ -1,0 +1,46 @@
+1. Function Definition(การตั้งค่าฟังก์ชันขึ้นเอง)
+     ex.int mint()  //function header
+     {  /*function body
+         statement1 
+         statement2 */
+     }
+2. Function Prototypes(เหมือนfunctionheader)
+     ex.int isEven();  
+        int main(
+        {}
+        int isEven()
+       {}
+
+#include<stdio.h>
+int addTen(int x)   // method signature ,function phototype
+{
+    x  += 10;
+    print("x in addTwenty = %d\n" ,x);
+    return x;
+}
+int addTwenty();   //ประกาศแค่ฟังชันphototype,โดยประกาศคล้ายตัวแปร
+int x =100;
+int main()
+{
+    int x = 20;    // ตัวแปร local ต้องห้ามลืม ประกาศค่าเริ่มต้น , ตัวแปร global หากลืมประกาศตัวแปรเริ่มต้น คอมพิวเตอร์จะให้ = 0 อัตโนมัต
+    int y = addTen(x); // จากบรรทัดที่ 8 , มาเรียกใช้จากตรงนี้ , pass by value ก็อปค่า x มา , โดยค่า x ไม่เกี่ยวข้องกับตัวที่ส่งมา
+{
+    printf("addTen = %d ,y");
+    printf("x in addTwenty =%d\n", x);
+}
+int addTwenty();   
+{
+    x = x + 20;     // ภาษาซี ถ้าหาตัวแปรในฟังก์ชันไม่เจอ จะไปหาจาก global , โดยตัวแปร global ต้องประกาศก่อนฟังก์ชัน , ค่า global x จะกลายเป็น 2020
+    printf("x in addTwenty + %d\n" ,x);
+    return x;0
+}   
+
+int fac(int i)          // function แบบ recursive
+{
+    if (i == 1)         // return constant , ตัวหยุด
+        return 1;
+    return i*fac(i-1);  // ตัว loop
+}
+
+
+
