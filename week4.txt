@@ -1,0 +1,64 @@
+Control Flow
+1. statement & block  
+      จบคำสั่งให้ใส่ ; เสมอ
+      ใช้break เมื่อต้องการให้หลุดลูป
+      NULL statement--> คล้าย passในpython หรือใช้ continue
+2. if else (else จะคู่กับ if ที่ใกล้ที่สุด)
+      รูปแบบ ex. if()
+                {}
+                else 
+3. else if(เหมือน elif ในpython)
+      รูปแบบ ex.if()
+                {}
+                else if()
+                {}
+                else{}
+4. switch (จะเขียนสั้นกว่า if else ,else if)        
+      //จะทำงานลงไปเรื่อยๆจนเจอ break แล้วถึงจะหลุดออกลูป switch
+      ex.switch(a){
+          case'a':...;
+           break;
+          case'b':...;
+          default:...;
+           break;
+      }
+5. Loops-While and For
+      รูปแบบ ex.While(เงื่อนไข)  //ถ้าเงื่อนไขถูกก็จะส่งไปstatement
+                   statement
+            ex.for(x=1;x<=5;x++)
+6. Loops-Do While(ต่างจากWhile, forที่เงื่อนไขจะอยู่ล่างลูป)
+      ex.do{
+          statement
+         }
+         While (เงื่อนไข);
+//loop
+    fgets(number, 5, stdin);
+    int i = atoi(number);
+    int count = 0;
+    while(count < i){
+        printf("count = %d\n",count);
+        count++;         // count++ทำงานเร็วกว่า++count; แต่ตอนจบกระบวนการมีค่าเท่ากัน
+                         //ถ้าเกิด infloop ให้กด  ctrl + c ส่งอินเทอร์หรับไปขัด
+    }
+    for (int j = 0; j<i ; j++){//(ทำก่อนเข้าloopครั้งเดียว,หาค่า TF ก่อนเข้า,ถ้าT จะทำตามอันสุดท้ายแล้วจบloopรอบนั้น)
+        printf("j = %d\n",j);
+    
+    }
+    //การเขียน infinite loop
+    while (1){} //ควร
+    for(;;){}   //ไม่ควร
+
+     for (int j = 0; j < i; j++)
+    // ส่วนใหญ่จะทำแบบนี้     
+    // stagement 1 - ถูกเรียกครั้งแรก ครั้งเดียว
+    // stagement 2 - เงื่อนไข
+    // stagement 3 - ต่อจากไม่เข้าเงื่อนไข stagement 2
+    {
+        printf("%d\n", j);
+    }
+
+}                         
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
