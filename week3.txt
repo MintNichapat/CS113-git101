@@ -1,0 +1,128 @@
+1. Type/Operators
+ต้องระบุประเภทตัวแปร(type)ก่อนถึงใช้งานได้ เช่น (int,float,long,double,char ตามด้วยชื่อตัวแปร)
+ex. int x; / char c;
+//การตั้งชื่อตัวแปรห้ามขึ้นด้วยตัวเลข ต้องขึ้นด้วยอักขระเท่านั้น  ตัว (_) นับเป็นอักขระ
+2. ประเภทของตัวแปร char(%c)       //รับพวกตัวอักษร 1byte 8bit เก็บ256ค่า
+                  int(%d)        //4byte 32bit เก็บ2000กว่าล้าน
+                  float(%f)      //4byte
+                  double(%lf)    //8byte
+                  long(%l)       //4byte
+                  long int(%li)  //8byte(long*2)
+                  short int(%hi) //2byte(short/2)
+    signed(เก็บทั้งค่า+,-)  unsigned(เก็บแต่ค่า+)
+    ex.unsigned char เก็บได้สูงสุด 0-255 ค่า ถ้ามากกว่านี้จะoverflow
+-ใช้ void main()เมื่อตัวแปรไม่มีประเภทข้อมูลและจะไม่คืนค่า แต่ int main() จะคืนค่า
+
+3. -คำสั่ง constant คือ ค่าคงที่กำหนดตัวแปรให้ไม่สามารถเปลี่ยนค่าได้
+ex.const int step =20;           //ก็จะมีค่าคงที่20ตลอดเลยเปลี่ยนไม่ได้
+   ค่าคงที่เลขฐาน 2  0b/0B-->ex.0b101 =(1*2**2)+(1*2**1)+(1*2**0)=5
+           ฐาน 8  037=(3*8**1)+(7*8**0)=31
+           ฐาน 16 0x/0X-->ex.0x23 =(2*16**1)+(3*16**0)=83
+   ค่าคงที่ตัวอักษร จะเขียนใน('') ex. 'X','O'
+           (ASCII<-->int) รหัสASCII a-z(97-112) , A-Z(65-90) ,0-9[48-57]
+           ex.#include<stdio.h>
+              int main(){
+                  int x='A';                          //'A'=65
+                  printf(%d\n,x+2);                   //x+2 =65+2=67
+                  printf(%c\n,x+2);                   //'67'= C
+                  printf(%d\n,sizeof("1234567890"));  //ขนาดของข้อมูลมี10ตัว + 1 index(0)=11
+              }
+   ค่าคงที่สตริง   ปกติสตริงจะมี\0 เพื่อจบปิดท้ายเสมอต้องจองbyteเผื่อ1ที่ เพื่อเก็บ (\0) ตอนจบท้าย
+           ex."This is a string constant."//ซึ่งมี25byte แต่มี\0ปิดท้ายเลยเพิ่มพื้นที่เป็น 26byte
+4. รูปแบบการ format printf() การจัดรูปแบบoutput ให้placeholder
+           ex.x=756                                   //จะได้ผลลัพธ์
+              Y=1234.5678                             
+              printf("%5d---%10.2f",%(x,y))       --> //_ _756---_ _ _1234.57
+5. Arithmetic operators(+,-,*,**,/,%)
+           //ยกกำลังจะทำจากขวาก่อนเสมอ(**)
+           ex.2**3**3 =256
+           int/int-->int เท่านั้น
+           int/float-->float
+           ex.11/3 =3.00  ex.11/3.0 =3.6667
+6. Relation operators and Logical operators(การเปรียบเทียบได้ผลเป็นTrue/Fale)
+  > ,>=,<,<=,==,!=    and  &&(and) ,||(or) ,not(!)
+7. Bitwise operators(เลขฐาน2 ให้ค่าเป็น bit)
+           ex.11110000 & 00110011-->00110000
+           ex.00110000 | 10101010-->01001010
+           ex.0100010<<2-->0001000
+           ex.00101000>>1-->00010100
+           ex.~00010100-->11101011
+// bitwise oparater
+// 5        => 0101         = 5
+// 5 >> 2   => 01           = 1
+// 5 << 2   => 010100       = 20
+// 5 & 1    => 0101 & 0001  = 1                  
+
+
+ตัวอย่างในแลป
+#include <stdlib.h>
+#include <stdio.h>
+char name [20]; //[20]คือarray ขนาด20 และจากช่องสุดท้ายไว้ให้"/0" หรือNULL-แปลว่าเก็บได้แค่4
+int number;
+char chr,chr1;
+int main()
+{
+    printf("Enter name : ");
+    gets(name);     //รับทุกอย่างรับข้อมูลได้เป็นประโยคๆ กำหนดอะไรไม่ได้ รับข้อมูลจนกว่าจะเจอ"\n"
+    fgets(name, 20, stdin); //flie get string (ตัวแปรชนิดchar, กำหนดขนาดที่ต้องการรับ รับเท่าไหร่,stdin) fgetsต้องใช้#stdlib.h 
+    getchar(chr);   //รับเเค่ตัวแปรเดียว ขนาด 1 เท่านั้น เขียนไปเท่าไหร่ ออกแค่ตัวแรก เช่น'A'
+    printf("%s",name);
+    fgets(number, 5, stdin);
+    int i = atoi(number); //atoi= array to integer ถ้าiแปลงค่าไม่ได้จะให้ค่า=0
+    printf("number = %s, i =%d\n",number , i);
+    number = 1234  //ที่หายไปคือในตอนเก็บเราจะใช้ ที่เก็บที่สุดท้ายในการเก็บ /0 /n
+
+    //char = getchar();
+    //char = getchar(); // การกด enter ทำให้ getchar รับ /n
+    //*ถ้าต้องการให้ /n หายให้ดูดทิ้งโดย ขึ้น getchar()อีกตัว
+    atol(); //array to long
+    atof(); //array to float
+    long l = atol(number);
+    double d = atof(number);
+
+
+    puts(number);         //Put String
+    putchar(100); putchar('a');
+
+
+    //ลอง print output
+    fgets(number, 5, stdin);
+    int i = atoi(number); // ถ้าใส่ตัวที่แปรงไม่ได้จะแปลงเป็น 0 ให้อัตโนมัติ
+    puts(number); 
+    putchar(100);
+    putchar('u'); //ส่งตัวแปรเดียว
+    // undeclared คือยังไม่ได้ประกาศตัวแปร
+
+    //บูลีน ภาษา c ไม่มี กำหนด type อย่างเดียว
+    // ไม่มี true false
+    //ให้ค่า false
+    int found = 0;          // FALSE
+    float isExist = 0.0;    // FALSE
+    char isOnline = '\0';   // FALSE
+    // แค่ 3 ค่านี้เท่านั้นที่เป็น FALSE - ที่เหลือเป็น TRUE
+
+    //การหาค่าความจริง
+    fgets(number, 5, stdin);
+    int i = atoi(number);
+    if(i > 0 && i <= 10) //สุดท้ายค่าที่ออกมาจะเป็น int 
+    {
+        printf("%d\n", i > 0 && i <= 10);
+    }else if(i <= 20 || !found){
+        printf("else if\n");
+    }else{
+        printf("else\n");
+    }
+    // count++;    // เพิ่มค่าทีหลังคำนวณในบรรทัด
+    // ++count;    // เพิ่มค่าก่อนคำนวณในบรรทัด
+    fgets(number, 5, stdin);
+    int i = atoi(number);
+    // int count = 0;
+    // while (count < i)
+    // {
+    //     printf("%d\n", count);
+    //     count++;
+    // }
+}
+
+
+
