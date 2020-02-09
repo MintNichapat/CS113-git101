@@ -1,0 +1,53 @@
+#include <stdio.h>
+     //void addTen(int number[],int n)เขียนได้เหมือนกันมีค่าเหมือนบรรทัดล่าง
+void add(int*number, int n)//แต่อันนี้ใช้บ่อยกว่า
+{
+     //int number[] = {1,2,3,4,5};
+     //number = 00
+     //i=0
+     //i=1 number+1=04 เลชฐานสิบหกกระโดดทีละสี่ค่า
+    for(int i = 0;i< n ; i++){
+        printf("addTen[%p]= %d\n",number+i,*(number+i)); //*ค่าที่เเอสเดรสนัมเบอเข้ามา
+        *(number+i)+10;//เอาค่าในแอสเดรสออกมาเเล้วบวกสิบ
+    }
+}
+int addTwenty(int*n){
+    *n = *n+20;
+    return 1;
+}
+int main()
+{
+    int n = 5;
+    int number[] = {1,2,3,4,5};
+    addTen(number,n);
+    //addTen(&number[0],n);
+    for (int i = 0; i< n;i++){
+        printf("[%p],%d\n",number+i, *(number+i)); //หรือเขียนเบบล่างก้ได้
+        printf("[%p],%d\n",&number[i], number[i]);
+    }
+    addTwenty(&n);
+    printf("n=d\n",n);
+}
+
+//แนวแลป6.1  11:11 ammmmmm
+scanf("%d:%d %c",&n1, &n2, &a);
+//if(strcmp(a,"am"))
+if (a =='a'){
+
+}
+
+1. Pointers and Addresses //เข้าถึงและ จัดการหน่วยความจํา (memory) ได้โดยตรง ด้วยการใช้ pointers 
+   Pointer เป็นตัวแปรทีใช้เก็บค่าตําแหน่งหรือ address ในหน่วยความจํา (ทีต้องการอ้างถึง) 
+2. Pointer Operators      //& เป็น operator ทีใช้หาค่าตําแหน่งในหน่วยความจําของ operand ดังทีเราเคยเห็นผ่าน ตัวอย่างทีใช้ในคําสัง
+   ex.p = &c;
+   //ซึงเป็นการกําหนดค่าให้กับตัวแปร p ให้มีค่าเท่ากับ address ของตัวแปร c
+   // * เรียกว่า dereferencing operator หรือ indirection operator ซึงเป็น unary operator โดยที * ถูกใช้ในการเข้าถึงข้อมูลทีถูกอ้างอิงโดยค่าตําแหน่งในหน่วยความจําทีมีค่าเป็น operand
+   ex.#include <stdio.h>
+       int main() 
+       {  int c = 5;   int *p;
+       p = &c;
+       printf(" c = %d\n", c);   
+       printf("*p = %d\n", *p); }
+3.ฟังก์ชัน scanf()
+ฟังก์ชัน scanf() เปรียบเทียบได้คล้ายกับฟังก์ชัน printf() เพียงแต่ทํางานในลักษณะตรงกันข้ามตรงที printf() 
+เป็นการแสดงผลออกไปที standard output (เช่น หน้าจอ) แต่ scanf() เป็นการรับ ข้อมูลเข้ามาในโปรแกรมผ่าน standard input
